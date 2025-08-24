@@ -1,0 +1,292 @@
+:root {
+  --bg: #0f1113;
+  --text: #e6e6e6;
+  --card-bg: #1b1f23;
+  --card-text: #e6e6e6;
+  --muted: #9aa0a6;
+  --border: #2a2f36;
+  --accent: #dc3545;
+  /* bootstrap danger as accent */
+  /* Soft page background gradient */
+  --bg-grad-start: #0e1012;
+  --bg-grad-end: #0f1113;
+  --surface-start: #14181c;
+  /* slightly lighter than bg */
+  --surface-end: #0f1113;
+  /* blend into page bg */
+}
+
+.theme-light {
+  --bg: #f8f9fa;
+  --text: #212529;
+  --card-bg: #ffffff;
+  --card-text: #212529;
+  --muted: #6c757d;
+  --border: #e9ecef;
+  --accent: #dc3545;
+  --surface-start: #ffffff;
+  --surface-end: #f5f7fa;
+  --bg-grad-start: #f9fafb;
+  --bg-grad-end: #f1f4f8;
+}
+
+body {
+  background: linear-gradient(180deg, var(--bg-grad-start), var(--bg-grad-end));
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.6;
+}
+
+.card.bg-dark {
+  background-color: var(--card-bg);
+  color: var(--card-text);
+}
+
+.card.themed-card {
+  background-color: var(--card-bg);
+  color: var(--card-text);
+}
+
+.card.themed-card .card-title,
+.card.themed-card .card-text {
+  color: var(--card-text);
+}
+
+.form-control,
+.btn {
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+}
+
+body {
+  transition: background-color .2s ease, color .2s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.surface {
+  background: linear-gradient(180deg, var(--surface-start), var(--surface-end));
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .18);
+  padding: 1rem;
+}
+
+.theme-light .surface {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .06);
+}
+
+/* Utility: soft gradient background using theme vars */
+.soft-gradient-bg {
+  background: linear-gradient(135deg, var(--bg-grad-start), var(--bg-grad-end));
+}
+
+@media (min-width: 768px) {
+  .surface {
+    padding: 1.5rem;
+  }
+}
+
+/* Inputs and buttons adapt to theme */
+.theme-light .form-control {
+  background: #fff;
+  color: #212529;
+  border-color: #dee2e6;
+}
+
+.theme-light .btn.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.theme-light .btn.btn-outline-light {
+  color: #212529;
+  border-color: #ced4da;
+}
+
+.theme-light .btn.btn-outline-light:hover {
+  background: #e9ecef;
+}
+
+.text-muted {
+  color: var(--muted);
+}
+
+/* Navbar colors follow theme; classes toggled in JS */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+}
+
+.navbar.bg-light {
+  background-color: #f8f9fa;
+}
+
+.navbar.bg-dark {
+  background-color: #0f1113;
+}
+
+.navbar .navbar-brand {
+  letter-spacing: 0.2px;
+}
+
+/* Section titles */
+.section-title {
+  display: inline-block;
+  font-weight: 700;
+  letter-spacing: .2px;
+  position: relative;
+  margin-bottom: .25rem;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 42px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+/* Anchor scroll offset for sticky nav */
+#favorites,
+#topPicks,
+#movieResults {
+  scroll-margin-top: 80px;
+}
+
+/* Movie card click affordance */
+.movie-card {
+  cursor: pointer;
+}
+
+.movie-card .card {
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color .15s ease;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.movie-card:hover .card {
+  transform: translateY(-2px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
+  border-color: rgba(220, 53, 69, .35);
+  /* accent tint */
+}
+
+/* Favorite overlay star */
+.fav-overlay {
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffd700;
+  /* gold */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+}
+
+.favorite-btn.favorited {
+  color: #ffd700;
+}
+
+/* Poster image sizing */
+.card-img-top {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  object-position: center;
+  background: #ddd;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+/* Light theme adjustments */
+.theme-light .fav-overlay {
+  background: rgba(255, 255, 255, 0.8);
+  color: #b58900;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.theme-light #pagination .btn.btn-outline-light {
+  color: #212529;
+  border-color: #ced4da;
+}
+
+.theme-light #pagination .btn.btn-outline-light:hover {
+  background: #e9ecef;
+}
+
+/* Details back button sizing */
+.card .back-btn {
+  display: inline-flex;
+  width: auto;
+}
+
+/* Larger search controls */
+.input-group .form-control#searchInput {
+  height: 3rem;
+}
+
+.input-group #searchBtn {
+  height: 3rem;
+}
+
+/* Improve placeholder contrast */
+::placeholder {
+  color: #9aa0a6;
+  opacity: .9;
+}
+
+.theme-light ::placeholder {
+  color: #6c757d;
+}
+
+/* Focus styles for accessibility */
+.movie-card:focus-within .card,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid rgba(220, 53, 69, .6);
+  outline-offset: 2px;
+}
+
+/* Pagination spacing */
+#pagination {
+  gap: .5rem;
+}
+
+/* Subtle card entrance animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.movie-card .card {
+  animation: fadeInUp .25s ease both;
+}
+
+/* Favorites counter pulse */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  40% {
+    transform: scale(1.18);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+#favCount.pulse {
+  animation: pulse .4s ease;
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OMG Movie</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <!-- Inter font for improved typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#">🎬 OMG Movie</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Search</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="#favorites">Favorites
+              <span id="favCount" class="badge rounded-pill bg-warning text-dark ms-1">0</span>
+            </a>
+          </li>
+          <li class="nav-item d-flex align-items-center ms-2">
+            <button id="themeToggle" class="btn btn-sm btn-outline-light" type="button" title="Toggle theme">🌙</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Search Section -->
+  <div class="container mt-4 surface">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="input-group">
+          <input type="text" id="searchInput" class="form-control" placeholder="Search for movies...">
+          <button id="searchBtn" class="btn btn-danger">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Results Section -->
+  <div class="container mt-5 surface">
+    <div class="row" id="movieResults">
+
+    </div>
+    <div id="pagination" class="d-flex justify-content-center align-items-center gap-2 my-4"></div>
+  </div>
+
+  <!-- Top Picks Section -->
+  <div class="container mt-5 surface" id="topPicks">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h3 class="mb-0 section-title">Top Picks</h3>
+      <small class="text-muted">Hand-picked classics</small>
+    </div>
+    <div class="row" id="topPicksResults"></div>
+  </div>
+
+  <!-- Favorites Section -->
+  <div class="container mt-5 surface" id="favorites">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h3 class="mb-0 section-title">Favorites</h3>
+      <button id="clearFavorites" class="btn btn-sm btn-outline-light">Clear All</button>
+    </div>
+    <div class="row" id="favoriteResults"></div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Toast container -->
+  <div id="toastArea" class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1080;"></div>
+  <!-- Your Script -->
+  <script src="script.js"></script>
+</body>
+
+</html>
